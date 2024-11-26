@@ -1,0 +1,43 @@
+import random
+from art import logo
+print(logo)
+
+number = random.randint(1, 100)
+hint = (f"Psst the number is {number}")
+print(hint)
+
+level = input("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.\nChoose a difficulty. Type 'easy' or 'hard'\n").lower()
+if level == "easy":
+    attempts = 10
+elif level == "hard":
+    attempts = 5
+
+print(f"You have {attempts} attempts remaining to guess the number.")
+
+while attempts > 0:
+    guess = int(input("Make a guess: \n"))
+    attempts -= 1
+    # print(attempts)
+
+    # if attempts == 0:
+    #     print("You've run out of guesses. Refresh the page to try again.")
+    if guess == number:
+        print(f"You guessed the correct number!!! It was {number}")
+        attempts = 0
+
+    if guess > number:
+        print("\nToo high.")
+        # print(f"You have {attempts} attempts remaining to guess the number.")
+
+    elif guess < number:
+        print("\nToo low.")
+        # print(f"You have {attempts} attempts remaining to guess the number.")
+
+    if attempts == 1:
+        print("You have one last attempt remaining to guess the number.")
+    elif attempts > 1:
+        print(f"You have {attempts} attempts remaining to guess the number.")
+    elif attempts < 1 and guess != number:
+        print("You've run out of guesses. Refresh the page to try again.")
+
+
